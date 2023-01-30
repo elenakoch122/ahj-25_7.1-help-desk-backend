@@ -1,6 +1,6 @@
 # ДЗ "7.Работа с HTTP"
 
-[![Build status](https://ci.appveyor.com/api/projects/status/0bkksqamymxhdhb3?svg=true)](https://ci.appveyor.com/project/elenakoch122/ahj-25-7-1-help-desk)
+[![Build status](https://ci.appveyor.com/api/projects/status/53fsxevu7my7be8t?svg=true)](https://ci.appveyor.com/project/elenakoch122/ahj-25-7-1-help-desk-backend)
 
 GitHub Pages:
 
