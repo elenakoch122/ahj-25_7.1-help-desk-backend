@@ -54,16 +54,15 @@ app.use(async (ctx, next) => {
 let tickets = [];
 
 app.use(async (ctx, next) => {
-  console.log('ctx.request---', ctx.request);
-
-  if (ctx.request.method === 'GET') {
-    console.log('ctx.request.query ---', ctx.request.query);
-  }
+  console.log('ctx.request.query ---', ctx.request.query);
+  // if (ctx.request.method === 'GET') {
+  //   console.log('ctx.request.query ---', ctx.request.query);
+  // }
 
   if (ctx.request.method === 'POST') {
     ctx.response.set('Content-Type', ctx.request.header['content-type']);
     console.log('ctx.request.body ---', ctx.request.body);
-    console.log('ctx.request.query ---', ctx.request.query);
+    // console.log('ctx.request.query ---', ctx.request.query);
   }
 
   let { method } = ctx.request.query;
@@ -74,23 +73,28 @@ app.use(async (ctx, next) => {
 
   switch (method) {
     case 'allTickets':
-      // ctx.response.body = 'tickets';
+      // ctx.response.body = 'hiiiiiii';
       ctx.response.body = tickets;
+      console.log('GET tickets - ', tickets);
+      console.log('--------------------');
       return;
     case 'createTicket':
       // ctx.response.body = 'hiiiiiii';
       const { name, description } = ctx.request.body;
       const ticket = new TicketFull(name, description);
       tickets.push(ticket);
-      console.log('tickets - ', tickets);
       ctx.response.body = ticket;
+      console.log('POST tickets - ', tickets);
+      console.log('--------------------');
       return;
     case 'deleteTicket':
-      ctx.response.body = 'hiiiiiii';
-      /*const { id } = ctx.request.query;
+      // ctx.response.body = 'hiiiiiii';
+      const { id } = ctx.request.query;
       tickets = tickets.filter((t) => t.id !== id);
       ctx.response.body = tickets;
-      return;*/
+      console.log('DELETE tickets - ', tickets);
+      console.log('--------------------');
+      return;
     // case 'changeTicket':
 
     case 'ticketById':
